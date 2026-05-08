@@ -36,21 +36,9 @@ This includes distributions such as:
 
 ## Installation
 
-Download the installer:
-
 ```bash
 curl -LO https://raw.githubusercontent.com/M-Gilly/SteamOS-LGTV-Wake/main/install.sh
-```
-
-Make it executable:
-
-```bash
 chmod +x install.sh
-```
-
-Run the installer:
-
-```bash
 ./install.sh
 ```
 
