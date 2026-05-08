@@ -21,8 +21,34 @@ TV_IP="${TV_IP:-$DEFAULT_TV_IP}"
 read -rp "HDMI input [$DEFAULT_INPUT_ID]: " INPUT_ID
 INPUT_ID="${INPUT_ID:-$DEFAULT_INPUT_ID}"
 
-read -rp "Guide button code [$DEFAULT_GUIDE_CODE]: " GUIDE_CODE
-GUIDE_CODE="${GUIDE_CODE:-$DEFAULT_GUIDE_CODE}"
+echo
+echo "Press your controller Guide/Home button to detect the button code..."
+echo "Waiting for input..."
+
+GUIDE_CODE="$(
+python3 - <<'PY'
+from evdev import InputDevice, categorize, ecodes, list_devices
+import select
+
+devices = []
+for path in list_devices():
+    try:
+        dev = InputDevice(path)
+        devices.append(dev)
+    except Exception:
+        pass
+
+while True:
+    r, _, _ = select.select(devices, [], [])
+    for dev in r:
+        for event in dev.read():
+            if event.type == ecodes.EV_KEY and event.value == 1:
+                print(event.code)
+                raise SystemExit
+PY
+)"
+
+echo "Detected Guide button code: $GUIDE_CODE"
 
 cat > "$APP_DIR/config.json" <<EOF
 {
