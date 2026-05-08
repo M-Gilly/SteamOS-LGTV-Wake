@@ -185,4 +185,4 @@ https://github.com/M-Gilly/SteamOS-LGTV-Wake
 
 ## Credits
 
-Special thanks to the author of BazziteLGTV for the original inspiration and groundwork around lightweight LG webOS control on Linux.
+Special thanks to the quickbits910 of BazziteLGTV (https://github.com/quickbits910/BazziteLGTV) for the original inspiration and groundwork around lightweight LG webOS control on Linux.
