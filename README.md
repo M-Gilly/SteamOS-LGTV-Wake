@@ -38,19 +38,19 @@ This includes distributions such as:
 
 Download the installer:
 
-```bash id="qrmqjv"
-curl -LO https://raw.githubusercontent.com/YOURUSERNAME/SteamOS-LGTV-Wake/main/install.sh
+```bash
+curl -LO https://raw.githubusercontent.com/M-Gilly/SteamOS-LGTV-Wake/main/install.sh
 ```
 
 Make it executable:
 
-```bash id="kpvl4m"
+```bash
 chmod +x install.sh
 ```
 
 Run the installer:
 
-```bash id="33s6ot"
+```bash
 ./install.sh
 ```
 
@@ -67,13 +67,13 @@ You may need to reboot once after installation if your user was added to the `in
 
 Configuration is stored at:
 
-```text id="by7rj8"
+```text
 ~/scripts/lgtvcontrol/config.json
 ```
 
 Example:
 
-```json id="jhf1fc"
+```json
 {
   "tv_ip": "192.168.1.30",
   "input_id": "HDMI_1",
@@ -96,25 +96,25 @@ Most Xbox-style controllers expose the Guide/Home button as Linux input code `31
 
 Wake TV and force HDMI input:
 
-```bash id="xwcyg0"
+```bash
 ~/scripts/lgtvcontrol/lgtv-on.sh
 ```
 
 Turn TV off:
 
-```bash id="vj1e1k"
+```bash
 ~/scripts/lgtvcontrol/lgtv-off.sh
 ```
 
 Force HDMI input once:
 
-```bash id="w0y5zx"
+```bash
 ~/scripts/lgtvcontrol/lgtv-hdmi.sh
 ```
 
 Full test cycle:
 
-```bash id="bofm0v"
+```bash
 ~/scripts/lgtvcontrol/lgtv-test.sh
 ```
 
@@ -122,19 +122,19 @@ Full test cycle:
 
 Guide button watcher:
 
-```bash id="t96yhn"
+```bash
 systemctl --user status guide-lgtv-watch.service
 ```
 
 Wake/resume watcher:
 
-```bash id="ml3y7f"
+```bash
 systemctl --user status wake-lgtv-watch.service
 ```
 
 Logs:
 
-```bash id="2c90mk"
+```bash
 journalctl --user -u guide-lgtv-watch.service -n 100 --no-pager
 journalctl --user -u wake-lgtv-watch.service -n 100 --no-pager
 ```
@@ -143,7 +143,7 @@ journalctl --user -u wake-lgtv-watch.service -n 100 --no-pager
 
 For Wake-on-LAN support, enable:
 
-```text id="o3r1p4"
+```text
 Settings
 → General
 → Devices
@@ -158,7 +158,7 @@ Enable:
 
 For best reliability, also disable:
 
-```text id="23pv0y"
+```text
 Settings
 → General
 → Quick Start+
@@ -170,7 +170,7 @@ Some LG TVs do not reliably respond to network wake events when Quick Start+ is 
 
 Run:
 
-```bash id="uvvfje"
+```bash
 ~/scripts/lgtvcontrol/uninstall.sh
 ```
 
@@ -178,6 +178,10 @@ This will:
 
 * disable and remove the user services
 * optionally remove the LGTV control directory and pairing key
+
+## Repository
+
+https://github.com/M-Gilly/SteamOS-LGTV-Wake
 
 ## Credits
 
